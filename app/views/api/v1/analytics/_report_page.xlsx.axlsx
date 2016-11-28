@@ -1,0 +1,44 @@
+head_style = sheet.styles.add_style({:alignment => {:horizontal => :left, :vertical => :center, :wrap_text => true}, :bg_color => "FF0000", :fg_color => "FFFFFF", :b => true})
+
+row_style = fetch_row_style(sheet, AnalyticService::PAGE_HEADER.keys)
+
+row_total_style = fetch_row_style(sheet, AnalyticService::PAGE_HEADER.keys, 'total')
+
+row_grand_total_style = fetch_row_style(sheet, AnalyticService::PAGE_HEADER.keys, 'grand')
+
+sheet.add_row AnalyticService::PAGE_HEADER.values, :style => head_style
+
+i_row += 1
+i_begin = i_row
+temp_key = nil
+temp_restruct = nil
+row_totals = []
+
+data.each do |key, values|
+  restruct = format_field_page(values, AnalyticService::PAGE_HEADER.keys)
+  if temp_key.nil?
+    temp_key = key
+    temp_restruct = restruct
+  elsif is_page_change(temp_restruct, restruct) == true
+    sheet.add_row( render_total_page_row(i_begin, i_row - 1, temp_restruct), :style => row_total_style )
+    row_totals << i_row
+    i_row += 1
+    i_begin = i_row
+    temp_key = key
+    temp_restruct = restruct
+  end
+
+  sheet.add_row( restruct, :style => row_style )
+  i_row += 1
+end
+
+if data.present?
+  sheet.add_row( render_total_page_row(i_begin, i_row - 1, temp_restruct), :style => row_total_style )
+  i_row += 1
+
+  sheet.add_row([''])
+  row_totals << i_row
+  i_row += 1
+
+  sheet.add_row( render_grand_total_page_row(row_totals), :style => row_grand_total_style )
+end

@@ -1,0 +1,12 @@
+branch-defaults:
+  fix-deployment:
+    environment: dashboard-api
+  master:
+    environment: dashboard-api
+global:
+  application_name: V4 Platform
+  default_ec2_keyname: yoose_latest
+  default_platform: 64bit Amazon Linux 2016.03 v2.1.0 running Docker 1.9.1
+  default_region: ap-southeast-1
+  profile: eb-cli
+  sc: git

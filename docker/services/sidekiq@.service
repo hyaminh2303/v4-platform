@@ -1,0 +1,18 @@
+[Unit]
+Description=Sidekiq
+
+[Service]
+ExecStartPre=-/usr/bin/docker kill sidekiq
+ExecStartPre=-/usr/bin/docker rm sidekiq
+ExecStart=/usr/bin/docker run --rm --name sidekiq
+  -e RAILS_ENV=$(etcdctl get /environment/dashboard-api/RAILS_ENV) \
+  -e DATABASE_NAME=$(etcdctl get /environment/dashboard-api/DATABASE_NAME) \
+  -e DATABASE_HOST=$(etcdctl get /environment/dashboard-api/DATABASE_HOST) \
+  -e DATABASE_USERNAME=$(etcdctl get /environment/dashboard-api/DATABASE_USERNAME) \
+  -e DATABASE_PASSWORD=$(etcdctl get /environment/dashboard-api/DATABASE_PASSWORD) \
+  -e REDIS_URL=$(etcdctl get /environment/dashboard-api/REDIS_URL) \
+  dashboard-api
+ExecStop=/usr/bin/docker stop sidekiq
+
+[X-Fleet]
+Conflicts=sidekiq@*.service

@@ -1,0 +1,57 @@
+stages:
+  - build
+  - image
+  - deploy
+
+variables:
+  RAILS_ENV: test
+  MONGO_DATABASE_NAME: v4-dashboard
+  MONGO_HOST: ip-10-151-28-14.ap-southeast-1.compute.internal:27017
+  FRONTEND_URL=http://localhost:8080
+  MAX_RECORD=30
+  AWS_ACCESS_KEY_ID: '123456678900'
+  AWS_SECRET_ACCESS_KEY: '123456678900'
+  AWS_REGION: 'ap-southeast-1'
+  AWS_S3_BUCKET: 'v4-banners-dashboard'
+  TRACKING_URL = 'http://api.v4.yoose.com'
+
+dashboard:
+  script:
+    - npm i -g eslint eslint-plugin-react babel-eslint estraverse-fb estraverse
+    - cd client
+    - npm i
+    - npm run build
+    - eslint app --ext=jsx --ext=js
+  stage: build
+  tags:
+    - dashboard
+
+dashboard-api:
+  script:
+    - gem install bundler
+    - bundle install
+    - bundle exec rubocop
+    - RAILS_ENV=test bundle exec rspec  --color spec --format doc
+  stage: build
+  tags:
+    - v4-api
+
+build-template:
+  script:
+    - make
+  only:
+    - staging
+    - master
+  stage: image
+  tags:
+    - image-bulder
+
+development-deploy:
+  script:
+    - cap development deploy
+    - cd client && cap development deploy
+  stage: deploy
+  only:
+    - develop
+  tags:
+    - v4-api

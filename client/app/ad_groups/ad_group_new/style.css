@@ -1,0 +1,30 @@
+.react-datepicker__input-container{
+  width: 100% !important;
+}
+.checkbox-target{
+  text-align: left !important;
+  padding-top: 9px !important;
+  padding-left: 0px !important;
+}
+.input-location-file{
+  margin-top: 7px !important;
+}
+.csv-template-file{
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+.form-group{
+  margin-bottom: 5px !important;
+}
+.checkbox-form{
+  margin-top: -10px !important;
+}
+
+.active-button, .active-button:focus{
+  background-color: #629b58 !important;
+  border-color: #87b87f;
+}
+
+.w-200{
+  width: 200px;
+}

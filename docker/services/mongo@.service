@@ -1,0 +1,15 @@
+[Unit]
+Description=MongoDB
+
+[Service]
+ExecStartPre=-/usr/bin/docker kill mongo
+ExecStartPre=-/usr/bin/docker rm mongo
+ExecStart=/usr/bin/docker run --rm --name mongo --hostname=mongo%i.yoose.com \
+ --add-host mongo1.yoose.com:172.17.8.101 \
+ --add-host mongo2.yoose.com:172.17.8.102 \
+ --add-host mongo3.yoose.com:172.17.8.103 \
+ -p 27017:27017 -v /home/core/data:/data/db mongo:3.2.3 --replSet "rs0"
+ExecStop=/usr/bin/docker stop mongo
+
+[X-Fleet]
+Conflicts=mongo@*.service

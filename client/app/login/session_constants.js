@@ -1,0 +1,5 @@
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
+export const LOGIN_FAIL = 'LOGIN_FAIL'
+export const LOG_OUT = 'LOG_OUT'
+export const CHECK_AUTH_TOKEN = 'CHECK_AUTH_TOKEN'
+export const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS'

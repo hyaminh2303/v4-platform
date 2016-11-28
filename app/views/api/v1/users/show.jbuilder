@@ -1,0 +1,1 @@
+json.(@user, :id, :name, :email, :role_id, :role_name, :role_key)

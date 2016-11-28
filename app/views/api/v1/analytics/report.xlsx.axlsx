@@ -1,0 +1,10 @@
+wb = xlsx_package.workbook
+i_row = 1
+wb.add_worksheet(name: "Landing Page - By Date") do |sheet|
+  render :partial => 'api/v1/analytics/report_date.xlsx.axlsx', locals: {sheet: sheet, data: data_by_date, i_row: i_row}
+end
+
+i_row = 1
+wb.add_worksheet(name: "Landing Page - By Page") do |sheet|
+  render :partial => 'api/v1/analytics/report_page.xlsx.axlsx', locals: {sheet: sheet, data: data_by_page, i_row: i_row}
+end

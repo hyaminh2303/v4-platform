@@ -1,0 +1,26 @@
+# :orientdb:
+#  :server: localhost
+#  :port: 2480
+#  :logger: stdout
+#  :database:
+#    :development: DEV
+#    :production: hcn_data
+#    :test:  tempera
+#  :admin:
+#    :user: hctw
+#    :pass: hc
+#  :auth:
+#    :user: topo
+#    :pass: focus
+
+:orientdb:
+ :server: 172.17.0.2
+ :port: 2480
+ :logger: stdout
+ :database:
+   :development: v4_dashboard_developemnt
+   :production: v4_dashboard_production
+   :test:  v4_dashboard_test
+ :auth:
+   :user: root
+   :pass: rootpwd

@@ -1,0 +1,41 @@
+head_style = sheet.styles.add_style({:alignment => {:horizontal => :left, :vertical => :center, :wrap_text => true}, :bg_color => "FF0000", :fg_color => "FFFFFF", :b => true})
+
+row_style = fetch_row_style(sheet, AnalyticService::DATE_HEADER.keys)
+
+row_total_style = sheet.styles.add_style({:alignment => {:horizontal => :right, :vertical => :center, :wrap_text => true}, :bg_color => "595959", :fg_color => "FFFFFF", :b => true})
+
+row_grand_total_style = fetch_row_style(sheet, AnalyticService::DATE_HEADER.keys, 'grand')
+
+i_row += 1
+i_begin = i_row
+temp = nil
+row_totals = []
+
+sheet.add_row AnalyticService::DATE_HEADER.values, :style => head_style
+
+data[:rows].each do |row|
+  retruct = retruct_row(row, data[:headers], AnalyticService::DATE_HEADER.keys)
+
+  if temp.nil?
+    temp = retruct
+  elsif is_date_change(temp, retruct) == true
+    sheet.add_row( render_total_date_row(i_begin, i_row - 1, temp), :style => row_total_style )
+    row_totals << i_row
+    i_row += 1
+    i_begin = i_row
+    temp = retruct
+  end
+
+  sheet.add_row( retruct, :style => row_style )
+  i_row += 1
+end
+
+if data[:rows].present?
+  sheet.add_row( render_total_date_row(i_begin, i_row - 1, temp), :style => row_total_style )
+
+  sheet.add_row([''])
+  row_totals << i_row
+  i_row += 1
+
+  sheet.add_row( render_grand_total_date_row(row_totals), :style => row_grand_total_style )
+end

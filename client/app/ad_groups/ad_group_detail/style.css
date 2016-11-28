@@ -1,0 +1,77 @@
+.popover{
+  max-width: 600px!important;
+  max-height: 600px!important;
+  width: auto!important;
+  height: auto!important;
+}
+table.parent-table tbody tr td{
+  border: none !important;
+}
+table.child-table{
+  margin: 0px;
+  border: none;
+}
+table.child-table.table-bordered tbody tr td {
+  border: 1px solid #ddd !important;
+  border-top: none !important;
+}
+table tbody tr td.wrap-column {
+  padding: 0px;
+}
+.toggle-platform{
+  cursor: pointer;
+}
+.platform-row{
+  width: 100%;
+}
+.green-color{
+  color: green;
+}
+.red-color {
+  color: red
+}
+.size-16 {
+  font-size: 16px;
+}
+.table.gray-table{
+  background-color: #f3f4f5
+}
+.white-background {
+  background-color: #ffffff
+}
+.element-group{
+  padding-bottom: 15px;
+}
+.element-popover{
+  height: auto!important;
+}
+.banner-template {
+  margin-top: 30px;
+  text-align: left;
+}
+.creative-landing-url{
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-name{
+  overflow: hidden;
+  max-width: 300px;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+.app-name-tooltip .tooltip-inner{
+  max-width: 100% !important;
+}
+
+.radio-text-align {
+  padding-left: 5px;
+  color: #d0dae4;
+}
+
+.radio-text-align-active {
+  color: #393939;
+}

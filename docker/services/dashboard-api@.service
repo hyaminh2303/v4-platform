@@ -1,0 +1,16 @@
+[Unit]
+Description=Dashboard API
+
+[Service]
+ExecStartPre=-/usr/bin/docker kill dashboard-api
+ExecStartPre=-/usr/bin/docker rm dashboard-api
+ExecStart=/bin/sh -c '/usr/bin/docker run --rm --name dashboard-api \
+    -p 3000:3000 \
+    -e RAILS_ENV=$(etcdctl get /environment/dashboard-api/RAILS_ENV) \
+    -e DATABASE_URL=$(etcdctl get /environment/dashboard-api/DATABASE_URL) \
+    -e REDIS_URL=$(etcdctl get /environment/dashboard-api/REDIS_URL) \
+    dashboard-api'
+ExecStop=/usr/bin/docker stop dashboard-api
+
+[X-Fleet]
+Conflicts=dashboard-api@*.service

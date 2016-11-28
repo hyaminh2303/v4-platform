@@ -1,0 +1,40 @@
+.user-row{
+  width: 60%;
+  margin: auto !important;
+}
+
+.user-row select{
+  width: 100%;
+  font-size: 14px;
+  height: 34px;
+  margin: 0px;
+}
+
+.user-select{
+  font-size: 14px;
+  width: 100%;
+}
+
+.role-error{
+  color: #d32f2f !important;
+}
+
+.label-role-error{
+  margin-bottom: 4px;
+  padding-top: 7px;
+  text-align: right;
+  width: 25%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  cursor: default;
+  color: #d32f2f;
+}
+                  

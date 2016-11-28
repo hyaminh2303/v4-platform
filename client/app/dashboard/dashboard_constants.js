@@ -1,0 +1,1 @@
+export const FETCH_SUMMARY = 'FETCH_SUMMARY'

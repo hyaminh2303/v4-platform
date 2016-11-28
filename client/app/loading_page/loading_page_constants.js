@@ -1,0 +1,2 @@
+export const LOADING_PAGE = 'LOADING_PAGE'
+export const LOADED_PAGE = 'LOADED_PAGE'

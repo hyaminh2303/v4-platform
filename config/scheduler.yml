@@ -1,0 +1,14 @@
+sync_temperature:
+  cron: "0 0 */2 * * *"
+  class: "WeatherSyncJob"
+  queue: default
+
+# sync_raw_data:
+#   cron: "0 0 1 */1 * *"
+#   class: "RawDataSyncJob"
+#   queue: default
+
+fetch_tracking_data_hours:
+  cron: "0 5 */1 * * *"
+  class: "TrackingDataHourJob"
+  queue: default

@@ -1,0 +1,11 @@
+en:
+  api:
+    v1:
+      passwords:
+        update:
+          expired: 'Invalid token'
+          updated: 'Passwords has been updated'
+          not_found: 'User not found'
+        create: 
+          sent_email: 'Email sent with password reset instructions.'
+          not_found: 'User email not found'

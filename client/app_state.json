@@ -1,0 +1,16 @@
+{
+  "campaign": {
+    "name": "Sample Campaign"
+  },
+  "campaigns": {
+    "data": [],
+    "page": 1,
+    "total": 100,
+    "sortBy": "name",
+    "sortDir": "asc",
+    "isLoading": false
+  },
+  "users": {
+    "data": []
+  }
+}

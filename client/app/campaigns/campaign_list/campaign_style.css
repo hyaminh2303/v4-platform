@@ -1,0 +1,9 @@
+.expired-campaign {
+  color: gray;
+}
+.running-campaign {
+  color: green;
+}
+.pendding-campaign {
+  color: orange;
+}

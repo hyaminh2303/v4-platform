@@ -1,0 +1,115 @@
+.creative-preview{
+  height: 120px;
+  margin: auto;
+  text-align: center;
+  border: 1px solid #B5B5B5;
+  padding: 5px 0px;
+  width: 48% !important;
+}
+.creative-preview > img {
+  max-width: 95% !important;
+  max-height: 95% !important;
+  margin:auto auto;
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+}
+.input-row{
+  margin-bottom: 10px !important;
+}
+.input-label{
+  text-align: right;
+}
+.attachment-error{
+  color: #d16e6c !important;
+}
+.creative-thumbnail{
+  text-align: center;
+  margin: auto;
+}
+.creative-thumbnail > a {
+  max-width: 95% !important;
+  max-height: 95% !important;
+}
+.creative-thumbnail > a > img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+.creative-clearfix{
+  height: 15px;
+}
+
+.label-error {
+  margin-bottom: 4px;
+  padding-top: 7px;
+  text-align: right;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  cursor: default;
+  color: #d32f2f;
+}
+
+.element-form{
+  width: 350px;
+  font-size: 13px;
+  label{
+    font-size: 13px;
+  }
+}
+.element-form.weather-form{
+  width: 550px;
+  font-size: 13px;
+  label{
+    font-size: 13px;
+  }
+}
+.degree-input1{
+  width: 80px;
+}
+.degree-input{
+  width: 40px;
+}
+.element-form form .inline-form-group{
+  display: inline-block;
+  margin: 0
+}
+
+.element-form form .selector-form-group{
+  margin: 0;
+}
+.Select-control{
+  height: 34px;
+}
+.Select-input{
+  height: 32px;
+}
+.Select-control{
+  border-collapse: separate;
+}
+.element-form form .selector-form-group.has-error .Select-control{
+  border: 1px solid #d32f2f;
+}
+.time-form-group{
+  margin-left: -5px !important;
+}
+.element-form form .time-form-group.has-error .Select-control{
+  border: 1px solid #d32f2f;
+}
+.banner-template {
+  margin-top: 30px;
+}
+.banner-template .list-btn {
+  position: absolute;
+  top: -32px;
+}
+.banner-template .list-btn .btn{
+  margin: -5px 4px 0 0;
+}
